@@ -7,7 +7,6 @@ cache:
 
 install:
 - npm install
-- npm global add node-coveralls
 
 script:
   - 'npm run test:report'
