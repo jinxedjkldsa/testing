@@ -4,7 +4,7 @@ import { Tree } from 'antd'
 
 const { TreeNode } = Tree
 
-export default class TreeList extends Component {
+export class TreeList extends Component {
   constructor(props) {
     super(props)
     this.state = {
