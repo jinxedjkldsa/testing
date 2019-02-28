@@ -16,7 +16,6 @@ const listParam = {
 const roleList = Enzyme.mount(<RoleList {...listParam} />);
 
 Enzyme.mount(<RoleManage wrappedComponentRef={node => (form = node)} />);
-
 let roleManage = Enzyme.mount(
   <RoleManage.WrappedComponent form={form.props.form} />
 );

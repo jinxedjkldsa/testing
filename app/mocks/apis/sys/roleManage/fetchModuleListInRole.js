@@ -17,7 +17,8 @@ module.exports = {
         ],
         resKey: 'desk$',
         resIcon: 'home',
-         status: 0,
+        resType: 1,
+        status: 0,
       },
       {
         id: 10062,
@@ -73,4 +74,4 @@ module.exports = {
   msg: '',
   errorCode: '',
   status: 1,
-}
+};

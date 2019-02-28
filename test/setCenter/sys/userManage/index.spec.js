@@ -1,9 +1,11 @@
 import React from "react";
 import Enzyme from "../../../Enzyme.js";
 import UserName from "../../../../app/pages/setCenter/sys/userManage/index";
+import TreeList from "../../../../app/pages/setCenter/sys/userManage/TreeList";
 import UserList from "../../../../app/mocks/apis/sys/userManage/fetchUserList";
-import {TreeList} from "../../../../app/pages/setCenter/sys/userManage/TreeList";
+import AddPolice from "../../../../app/pages/setCenter/sys/userManage/modal/addPolice";
 import userDeptResult from "../../../../app/mocks/apis/sys/userManage/fetchUserDepttList";
+import TableList from "../../../../app/components/tableList/tableList";
 jest.mock("../../../../app/configs/ajax");
 jest.mock("../../../../app/apis/manage");
 
@@ -119,37 +121,37 @@ test("pagenext", () => {
   UserManage.instance().pageSizeChange({}, 20);
   expect(UserManage.state().searchKey.pageSize).toBe(20);
 });
-// JestTreeList模块
-describe("JestTreeList", () => {
-  const JestTreeListParam = {
+// treelist模块
+describe("treeList", () => {
+  const treeListParam = {
     curDeptCode: "370200000000",
     onSelect: UserManage.instance().onSelect
   };
-  const JestTreeList = Enzyme.mount(<JestTreeList {...JestTreeListParam} />);
+  const treeList = Enzyme.mount(<TreeList {...treeListParam} />);
   //树点击事件
-  JestTreeList.setProps({
+  treeList.setProps({
     trees: userDeptResult.data.list
   });
   it("treeClick", () => {
-    JestTreeList
+    treeList
       .find("li")
       .at(0)
       .find("span")
       .at(0)
       .simulate("click");
-    expect(JestTreeList.state("expandedKeys")).toContain(
+    expect(treeList.state("expandedKeys")).toContain(
       userDeptResult.data.list[0].deptCode
     );
   });
   //树内容点击事件
-  it("JestTreeListClick", () => {
-    JestTreeList
+  it("treeListClick", () => {
+    treeList
       .find("li")
       .at(0)
       .find("span")
       .at(1)
       .simulate("click");
-    JestTreeList
+    treeList
       .find("li")
       .at(1)
       .find("span")

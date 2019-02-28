@@ -32,7 +32,7 @@ const { fetchBtns } = require('@configs/common');
 export default class app extends Component {
   // 初始化页面常量 绑定事件方法
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       // activeTab: 'list',
       searchtitle: '',

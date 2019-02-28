@@ -1,36 +1,32 @@
+import React, { Component } from "react";
+import { Button, Form, Input } from "antd";
+import { connect } from "react-redux";
+import { regExpConfig } from "@reg";
+import Drawer from "@components/draw/draw";
 
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Button, Form, Input } from 'antd'
-import { regExpConfig } from '@reg'
-import Drawer from '@components/draw/draw'
+const FormItem = Form.Item;
 
-const FormItem = Form.Item
 
-// 连接公用常量、后端返回的数据方法  并放置在props里面调用
 @connect((state, props) => ({
-  config: state.config,
+  config: state.config
 }))
-
-@Form.create({})
+@Form.create()
 
 // 声明组件  并对外输出
-export default class pop extends Component {
+export default class Pop extends Component {
   // 初始化页面常量 绑定事件方法
   constructor(props) {
-    super(props)
-    this.state = {
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    super(props);
+    this.state = {};
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
-    this.props.form.resetFields()
+    this.props.form.resetFields();
   }
 
   // 组件已经加载到dom中
-  componentDidMount() { }
-
+  componentDidMount() {}
 
   handleSubmit(e) {
     e.preventDefault();
@@ -38,31 +34,33 @@ export default class pop extends Component {
       if (errors) {
         return;
       }
-      values.resType = 3
-      if (this.props.state === 'edit') {
-        values.id = this.props.buttonEditData.id
+      values.resType = 3;
+      if (this.props.state === "edit") {
+        values.id = this.props.buttonEditData.id;
       }
-      this.props.handleAdd(values)
-    })
+      this.props.handleAdd(values);
+    });
   }
 
   footer() {
-    const { onCancel } = this.props
+    const { onCancel } = this.props;
     return (
       <div>
-        <Button type="primary" onClick={this.handleSubmit}>确定</Button>
+        <Button type="primary" onClick={this.handleSubmit}>
+          确定
+        </Button>
         <Button onClick={onCancel}>取消</Button>
       </div>
-    )
+    );
   }
 
   render() {
-    const { visible, onCancel, title, buttonEditData } = this.props
+    const { visible, onCancel, title, buttonEditData } = this.props;
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 5 },
-      wrapperCol: { span: 17 },
-    }
+      wrapperCol: { span: 17 }
+    };
     return (
       <Drawer
         visible={visible}
@@ -72,7 +70,11 @@ export default class pop extends Component {
         className="modal-header modal-body"
       >
         <div className="modalcontent">
-          <Form layout="horizontal" autoComplete="off" onSubmit={this.handleSubmit}>
+          <Form
+            layout="horizontal"
+            autoComplete="off"
+            onSubmit={this.handleSubmit}
+          >
             {/* <FormItem {...formItemLayout} label="上级菜单id" hasFeedback>
               {getFieldDecorator('parentId', {
                 initialValue: this.props.pid || '',
@@ -81,20 +83,18 @@ export default class pop extends Component {
                 )}
             </FormItem> */}
             <FormItem {...formItemLayout} label="新增按钮名称" hasFeedback>
-              {getFieldDecorator('resName', {
-                rules: [
-                  { required: true, message: '请输入按钮名称' },
-                ],
-                initialValue: buttonEditData.resName || '',
+              {getFieldDecorator("resName", {
+                rules: [{ required: true, message: "请输入按钮名称" }],
+                initialValue: buttonEditData.resName || ""
               })(<Input placeholder="请输入按钮名称" />)}
             </FormItem>
             <FormItem {...formItemLayout} label="排序数字" hasFeedback>
-              {getFieldDecorator('sort', {
+              {getFieldDecorator("sort", {
                 rules: [
-                  { required: true, message: '请输入排序数字' },
-                  { pattern: regExpConfig.num, message: '请输入数字' },
+                  { required: true, message: "请输入排序数字" },
+                  { pattern: regExpConfig.num, message: "请输入数字" }
                 ],
-                initialValue: `${buttonEditData.sort || '0'}`,
+                initialValue: `${buttonEditData.sort || "0"}`
               })(<Input placeholder="请输入菜单的排序数字" />)}
             </FormItem>
             {/* <FormItem {...formItemLayout} label="模块名称" hasFeedback>
@@ -108,11 +108,9 @@ export default class pop extends Component {
                 )}
             </FormItem> */}
             <FormItem {...formItemLayout} label="关键字" hasFeedback>
-              {getFieldDecorator('resKey', {
-                rules: [
-                  { required: true, message: '请输入关键字' },
-                ],
-                initialValue: `${buttonEditData.resKey || ''}`,
+              {getFieldDecorator("resKey", {
+                rules: [{ required: true, message: "请输入关键字" }],
+                initialValue: `${buttonEditData.resKey || ""}`
               })(<Input placeholder="请输入关键字" />)}
             </FormItem>
             {/* <FormItem {...formItemLayout} label="图标名称" hasFeedback>
@@ -145,6 +143,6 @@ export default class pop extends Component {
           </Form>
         </div>
       </Drawer>
-    )
+    );
   }
 }

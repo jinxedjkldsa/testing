@@ -8,6 +8,9 @@ import UserList from "../../../../../app/mocks/apis/sys/userManage/fetchUserList
 
 import Draw from "../../../../../app/components/draw/draw";
 jest.mock("../../../../../app/configs/ajax");
+
+
+
 jest.mock("../../../../../app/components/draw/draw");
 let form1;
 Enzyme.mount(<UserName wrappedComponentRef={node => (form1 = node)} />);

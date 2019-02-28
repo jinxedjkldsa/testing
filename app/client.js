@@ -7,6 +7,7 @@ import Routes from '@configs/router.config'
 import configure from '@middleware/configureStore'
 
 const store = configure({ })
+
 ReactDOM.render(
   <Provider store={store}>
     <Routes />
