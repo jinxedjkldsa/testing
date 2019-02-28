@@ -18,7 +18,8 @@
     "chat": "node ./scripts/chatServer.js",
     "precommit": "lint-staged",
     "preCommitInit": "node ./node_modules/husky/lib/installer/bin.js install",
-    "dll": "webpack --config ./scripts/webpack.dll.config.js"
+    "dll": "webpack --config ./scripts/webpack.dll.config.js",
+    "test:report":"jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "husky": {
     "hooks": {
@@ -91,6 +92,7 @@
     "babel-core": "~6.26.0",
     "babel-eslint": "~8.2.1",
     "babel-jest": "^23.6.0",
+    "coveralls": "^3.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-loader": "~7.1.2",
     "babel-plugin-import": "^1.6.3",
