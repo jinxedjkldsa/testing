@@ -55,6 +55,7 @@ jobs:
       - checkout
       - *attach_workspace
       - run: npm run testing
+      - run: node ./scripts/webpack.testing.config.js
       - persist_to_workspace:
           root: ~/react
           paths:

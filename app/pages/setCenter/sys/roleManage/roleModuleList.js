@@ -266,15 +266,7 @@ export default class app extends Component {
           return (
             // sessionStorage.getItem('roleName') === '0' ?
 
-            <span>
-              <span>
-                <RoleCheckbox
-                  checkItem={record}
-                  onChecked={_self.onChecked}
-                  defaultChecked={_self.onInArray(record.id, checkedIds)}
-                  nowRoleName={_self.props.nowRoleName}
-                />
-              </span>
+            <span onChecked={_self.onChecked} defaultChecked={_self.onInArray(record.id, checkedIds)} nowRoleName={_self.props.nowRoleName} >
               <span className="ant-divider" />
               <a onClick={() => buttonList(record.id, record.parentid)}>按钮权限</a>
             </span>
