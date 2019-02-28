@@ -1,9 +1,8 @@
 import React from "react";
 import Enzyme from "../../../Enzyme.js";
 import UserName from "../../../../app/pages/setCenter/sys/userManage/index";
-import TreeList from "../../../../app/pages/setCenter/sys/userManage/TreeList";
 import UserList from "../../../../app/mocks/apis/sys/userManage/fetchUserList";
-import AddPolice from "../../../../app/pages/setCenter/sys/userManage/modal/addPolice";
+import TreeList from "../../../../app/pages/setCenter/sys/userManage/TreeList";
 import userDeptResult from "../../../../app/mocks/apis/sys/userManage/fetchUserDepttList";
 jest.mock("../../../../app/configs/ajax");
 jest.mock("../../../../app/apis/manage");
