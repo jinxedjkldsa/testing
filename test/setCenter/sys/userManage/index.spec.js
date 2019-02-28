@@ -2,6 +2,7 @@ import React from "react";
 import Enzyme from "../../../Enzyme.js";
 import UserName from "../../../../app/pages/setCenter/sys/userManage/index";
 import UserList from "../../../../app/mocks/apis/sys/userManage/fetchUserList";
+import {TreeList} from "../../../../app/pages/setCenter/sys/userManage/TreeList";
 import userDeptResult from "../../../../app/mocks/apis/sys/userManage/fetchUserDepttList";
 jest.mock("../../../../app/configs/ajax");
 jest.mock("../../../../app/apis/manage");
@@ -118,35 +119,38 @@ test("pagenext", () => {
   UserManage.instance().pageSizeChange({}, 20);
   expect(UserManage.state().searchKey.pageSize).toBe(20);
 });
-// TreeList模块
-describe("TreeList", () => {
-  const TreeListParam = {
+// JestTreeList模块
+describe("JestTreeList", () => {
+  const JestTreeListParam = {
     curDeptCode: "370200000000",
     onSelect: UserManage.instance().onSelect
   };
-  const TreeList = Enzyme.mount(<TreeList {...TreeListParam} />);
+  const JestTreeList = Enzyme.mount(<JestTreeList {...JestTreeListParam} />);
   //树点击事件
-  TreeList.setProps({
+  JestTreeList.setProps({
     trees: userDeptResult.data.list
   });
   it("treeClick", () => {
-    TreeList.find("li")
+    JestTreeList
+      .find("li")
       .at(0)
       .find("span")
       .at(0)
       .simulate("click");
-    expect(TreeList.state("expandedKeys")).toContain(
+    expect(JestTreeList.state("expandedKeys")).toContain(
       userDeptResult.data.list[0].deptCode
     );
   });
   //树内容点击事件
-  it("TreeListClick", () => {
-    TreeList.find("li")
+  it("JestTreeListClick", () => {
+    JestTreeList
+      .find("li")
       .at(0)
       .find("span")
       .at(1)
       .simulate("click");
-    TreeList.find("li")
+    JestTreeList
+      .find("li")
       .at(1)
       .find("span")
       .at(1)
