@@ -5,7 +5,6 @@ import TreeList from "../../../../app/pages/setCenter/sys/userManage/TreeList";
 import UserList from "../../../../app/mocks/apis/sys/userManage/fetchUserList";
 import AddPolice from "../../../../app/pages/setCenter/sys/userManage/modal/addPolice";
 import userDeptResult from "../../../../app/mocks/apis/sys/userManage/fetchUserDepttList";
-import TableList from "../../../../app/components/tableList/tableList";
 jest.mock("../../../../app/configs/ajax");
 jest.mock("../../../../app/apis/manage");
 
