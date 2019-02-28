@@ -192,7 +192,7 @@ export default class userManage extends Component {
     })
   }
 
-  getButtonList() {
+  getButtonList = () => {
     this.setState({
       butttonListLoading: true,
     }, () => {

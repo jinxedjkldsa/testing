@@ -1,6 +1,5 @@
 import React from "react";
 import Enzyme from "../../../../Enzyme.js";
-import RoleManage from "../../../../../app/pages/setCenter/sys/roleManage/index";
 import ModuleManage from "../../../../../app/pages/setCenter/sys/moduleManage/index";
 import ButtonModal from "../../../../../app/pages/setCenter/sys/moduleManage/modal/buttonModal";
 import fetchButtonList from "../../../../../app/mocks/apis/sys/roleManage/fetchButtonList";
@@ -25,7 +24,7 @@ const editParam = {
   title: "模块按钮权限列表",
   addButton: moduleManage.instance().addButton,
   updateList: moduleManage.instance().getButtonList,
-  editButton: moduleManage.instance().editButton
+  editButton: moduleManage.instance().editButton,
 };
 const BtnModal = modalParam(editParam);
 

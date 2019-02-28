@@ -74,7 +74,8 @@
       "!**/client.js",
       "!**/webpack.config.js",
       "!**/selectRole.js",
-      "!**/setCenter/index.js"
+      "!**/setCenter/index.js",
+      "!**/dist/**"
     ],
     "coverageThreshold": {
       "global": {
@@ -82,10 +83,6 @@
         "functions": 50,
         "lines": 50,
         "statements": 50
-      },
-      "/components/": {
-        "branches": 80,
-        "statements": 80
       }
     }
   },

@@ -40,9 +40,9 @@ const RadioGroup = Radio.Group
 const { Search } = Input
 
 // 连接公用常量、后端返回的数据方法  并放置在props里面调用
-@connect((state, props) => ({
-  config: state.config,
-}))
+// @connect((state, props) => ({
+//   config: state.config,
+// }))
 
 @Form.create({})
 
